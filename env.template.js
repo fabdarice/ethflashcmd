@@ -7,6 +7,7 @@ const DATA_TYPE = "bool"; // bool | timestamp | blocknumber
 module.exports = {
   CONTRACT_ADDR,
   CALLDATA,
-  NODE_WS_URI
+  NODE_WS_URI,
+  DATA_TYPE
 }
 

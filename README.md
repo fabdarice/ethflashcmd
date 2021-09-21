@@ -13,5 +13,7 @@ node cli.js
 ```shell
 node cli.js \
     --contract=<CONTRACT_ADDR> \
-    --calldata=<CALLDATA_CMD> 
+    --calldata=<CALLDATA_CMD>  \
+    --delay=<DELAY_IN_MS>  
+
 ```

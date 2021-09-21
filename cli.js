@@ -5,13 +5,15 @@ const { ethers } = require('ethers')
 const {
   contractAddr,
   calldata,
-  nodeUri
+  nodeUri,
+  dataType,
+  delay,
 } = require('./config.js')
 
 async function main() {
   preChecks()
   const provider = connectProvider()
-  await call(provider)
+  await watch(provider, delay)
 }
 
 function connectProvider() {
@@ -20,12 +22,32 @@ function connectProvider() {
   return provider
 }
 
-async function call(provider) {
-  const tx = await provider.call({
-    to: contractAddr,
-    data: calldata
-  })
-  console.log('tx', tx)
+function printResult(res) {
+  if (dataType == 'bool') {
+    console.log(res == ethers.utils.HashZero)
+  }
+  if (dataType == 'timestamp') {
+    const t = parseInt(res, 16)
+  }
+  if (dataType == 'blocknumber') {
+    console.log(parseInt(res, 16))
+  }
+}
+
+async function watch(provider, ms) {
+  while (true) {
+    const tx = await provider.call({
+      to: contractAddr,
+      data: calldata
+    })
+    printResult(tx)
+    await delayFunc(ms)
+  }
+}
+
+async function delayFunc(ms) {
+  // return await for better async stack trace support in case of errors.
+  return await new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function preChecks() {

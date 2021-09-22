@@ -14,6 +14,7 @@ node cli.js
 node cli.js \
     --contract=<CONTRACT_ADDR> \
     --calldata=<CALLDATA_CMD>  \
-    --delay=<DELAY_IN_MS>  
+    --delay=<DELAY_IN_MS>      \
+    --type=<bool|timestamp|blocknumber>
 
 ```

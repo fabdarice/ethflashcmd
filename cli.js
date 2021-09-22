@@ -24,7 +24,7 @@ function connectProvider() {
 
 function printResult(res) {
   if (dataType == 'bool') {
-    console.log(res == ethers.utils.HashZero)
+    console.log(res == '0x0000000000000000000000000000000000000000000000000000000000000001')
   }
   if (dataType == 'timestamp') {
     const t = parseInt(res, 16)

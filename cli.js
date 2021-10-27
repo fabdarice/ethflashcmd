@@ -32,6 +32,9 @@ function printResult(res) {
   if (dataType == 'blocknumber') {
     console.log(parseInt(res, 16))
   }
+  if (dataType == 'plain') {
+    console.log(res)
+  }
 }
 
 async function watch(provider, ms) {

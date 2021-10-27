@@ -28,6 +28,8 @@ function printResult(res) {
   }
   if (dataType == 'timestamp') {
     const t = parseInt(res, 16)
+    var now = Math.round(new Date() / 1000);
+    console.log(`${t-now} seconds remaining..`)
   }
   if (dataType == 'blocknumber') {
     console.log(parseInt(res, 16))
